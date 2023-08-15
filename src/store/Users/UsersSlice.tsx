@@ -2,31 +2,9 @@ import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { RootState } from '../index';
 import UserService from '../../services/users';
 import { AxiosResponse } from 'axios';
+import { User } from '../../types/types';
 
-interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  };
-  phone: string;
-  website: string;
-  company: {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-  };
-}
-export interface UserState {
+interface UserState {
   loading: boolean;
   users: Array<User>;
   error: string | undefined;
