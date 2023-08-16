@@ -4,7 +4,7 @@ import screens from '../screens';
 export default {
 
   Home: {
-    screenName: 'List',
+    screenName: 'Home',
     component: screens.Home,
     icon: 'history',
     size: 24,

@@ -8,7 +8,12 @@ import {TextInput} from "../../components";
 import UserItem from './components/UserItem';
 import {selectedUsers} from "../../store/Users/UserSelector";
 
-export default function HomeScreen() {
+import { StackScreenProps } from '@react-navigation/stack';
+;
+import { MainStackParams } from '../../navigation/MainStack';
+
+export type Props = StackScreenProps<MainStackParams, 'Home'>
+export default function HomeScreen({navigation}: Props) {
   const dispatch = useAppDispatch();
   const {users, searchString} = useAppSelector(store => store.usersReducer);
   const usersData = useAppSelector(selectedUsers)
@@ -18,7 +23,7 @@ export default function HomeScreen() {
   useEffect(() => {
     getUsers();
     return () => {
-      dispatch(setSearchString(''))
+      dispatch(setSearchString(null))
     }
   }, []);
 
@@ -40,7 +45,6 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <TextInput value={searchString ? searchString : ''} onChangeText={handleChange} search={true}/>
-
       {!!searchString?.length && usersData.length == 0 ?
         <View style={styles.emptyContainer}>
           <Text style={styles.emptyText}>Empty</Text>
@@ -56,7 +60,7 @@ export default function HomeScreen() {
           }
           refreshing={refreshing}
           contentContainerStyle={styles.listWrapper}
-          renderItem={({item}) => <UserItem {...item} />}
+          renderItem={({item}) => <UserItem navigation={navigation} {...item} />}
           keyExtractor={item => item.id.toString()}
           data={!!usersData.length ? usersData : users}
           ItemSeparatorComponent={() => <View style={styles.separator}></View>}

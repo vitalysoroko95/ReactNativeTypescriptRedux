@@ -1,7 +1,5 @@
-import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import {RootState} from '../index';
-import UserService from '../../services/users';
-import {AxiosResponse} from 'axios';
 import {User} from '../../types/types';
 
 interface UserState {
