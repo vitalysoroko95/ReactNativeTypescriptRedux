@@ -10,14 +10,7 @@ export const selectedUsers = createSelector(
     let newArr = [...allUsers]
     if (searchString !== null) {
       const newSearchString = new RegExp(searchString, "i");
-      newArr = newArr.filter(item => {
-          if (item.name.match(newSearchString)) {
-            return true
-          } else {
-            return false
-          }
-        }
-      )
+      newArr = newArr.filter(item => item.name.match(newSearchString))
     }
     return newArr;
   }

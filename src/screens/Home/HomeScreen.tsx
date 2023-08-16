@@ -33,11 +33,7 @@ export default function HomeScreen() {
   }, []);
 
   const handleChange = (text: string) => {
-    if (text.length === 0) {
-      dispatch(setSearchString(null))
-    } else {
-      dispatch(setSearchString(text))
-    }
+    text.length === 0 ? dispatch(setSearchString(null)) : dispatch(setSearchString(text))
   }
 
 
@@ -82,12 +78,12 @@ const styles = StyleSheet.create({
   separator: {
     height: 10,
   },
-  emptyContainer:{
+  emptyContainer: {
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
-  emptyText:{
+  emptyText: {
     fontFamily: theme.primaryFont.bold,
     fontWeight: 'bold'
   }
