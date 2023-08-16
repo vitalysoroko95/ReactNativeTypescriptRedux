@@ -9,6 +9,11 @@ export const theme = {
     error: '#f13a59',
     black: '#000000',
   },
+  primaryFont: {
+    regular: 'Roboto-Regular',
+    medium: 'Roboto-Medium',
+    bold: 'Raboto-Bold'
+  }
 };
 
 export const hitSlop = {

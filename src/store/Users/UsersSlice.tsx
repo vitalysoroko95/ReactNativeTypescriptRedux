@@ -1,19 +1,21 @@
-import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
-import { RootState } from '../index';
+import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {RootState} from '../index';
 import UserService from '../../services/users';
-import { AxiosResponse } from 'axios';
-import { User } from '../../types/types';
+import {AxiosResponse} from 'axios';
+import {User} from '../../types/types';
 
 interface UserState {
   loading: boolean;
   users: Array<User>;
   error: string | undefined;
+  searchString: string | null
 }
 
 const initialState: UserState = {
   loading: false,
   users: [],
   error: undefined,
+  searchString: null
 };
 
 export const fetchUsers = createAsyncThunk('users/fetchUsers', () => {
@@ -21,10 +23,14 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', () => {
   return res;
 });
 
-export const userSlice = createSlice({
+export const usersSlice = createSlice({
   name: 'users',
   initialState,
-  reducers: {},
+  reducers: {
+    setSearchString(state, action) {
+      state.searchString = action.payload
+    }
+  },
   extraReducers: builder => {
     builder.addCase(fetchUsers.pending, state => {
       state.loading = true;
@@ -44,7 +50,7 @@ export const userSlice = createSlice({
   },
 });
 
-export const {} = userSlice.actions;
+export const {setSearchString} = usersSlice.actions;
 
-export const userSelector = (state: RootState) => state.userReducer;
-export default userSlice.reducer;
+export const usersSelector = (state: RootState) => state.usersReducer;
+export default usersSlice.reducer;
