@@ -2,7 +2,7 @@ import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MyBottomNavigation, TabBarIcon } from './../../components';
 import bottomBarConfig from '../../core/bottomBarConfig';
-
+import { theme } from '../../core/theme';
 
 export type MainStackParams = {
   Home: undefined;
@@ -25,6 +25,10 @@ const MainStackScreens = (): JSX.Element => (
         options={{
           tabBarLabel: bottomBar.screenName,
           tabBarIcon: props => <TabBarIcon name={bottomBar.icon} {...props} />,
+          tabBarStyle: {
+            width: 100,
+            backgroundColor: theme.colors.scrim,
+          },
         }}
       />
     ))}

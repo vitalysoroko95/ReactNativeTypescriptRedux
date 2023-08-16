@@ -10,7 +10,7 @@ export default function UserItem({ ...item }: User) {
     <TouchableWithoutFeedback>
       <View style={styles.wrapper}>
         <View>
-          <Text>{name}</Text>
+          <Text style={styles.text}>{name}</Text>
           <Text>{email}</Text>
         </View>
       </View>
@@ -25,4 +25,8 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.black,
     borderRadius: 12,
   },
+  text: {
+    fontFamily: 'Roboto-Regular',
+    fontSize:20
+  }
 });
