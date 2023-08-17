@@ -1,18 +1,17 @@
-
 import screens from '../screens';
+import icons from './icons';
 
 export default {
-
   Home: {
-    screenName: 'Home',
+    screenName: 'List',
     component: screens.Home,
-    icon: 'history',
+    icon: icons.users,
     size: 24,
   },
   Details: {
-    screenName: 'Details',
+    screenName: 'List Item',
     component: screens.Details,
-    icon: 'account-circle',
+    icon: icons.user,
     size: 24,
   },
 };

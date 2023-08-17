@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MyBottomNavigation, TabBarIcon } from './../../components';
+import { MyBottomNavigation } from './../../components';
 import bottomBarConfig from '../../core/bottomBarConfig';
 import { theme } from '../../core/theme';
+import { Image, StyleSheet } from 'react-native';
 
 export type MainStackParams = {
   Home: undefined;
@@ -24,9 +25,11 @@ const MainStackScreens = (): JSX.Element => (
         name={bottomBar.screenName as any}
         options={{
           tabBarLabel: bottomBar.screenName,
-          tabBarIcon: props => <TabBarIcon name={bottomBar.icon} {...props} />,
+          tabBarIcon: props => (
+            <Image source={bottomBar.icon} style={styles.icon} />
+          ),
           tabBarStyle: {
-            width: 100,
+            width: 200,
             backgroundColor: theme.colors.scrim,
           },
         }}
@@ -34,5 +37,12 @@ const MainStackScreens = (): JSX.Element => (
     ))}
   </BottomTab.Navigator>
 );
+
+const styles = StyleSheet.create({
+  icon: {
+    width: 24,
+    height: 24,
+  },
+});
 
 export default MainStackScreens;

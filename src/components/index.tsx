@@ -1,5 +1,5 @@
 import MyBottomNavigation from './MyBottomNavigation';
-import TabBarIcon from './TabBarIcon';
 import TextInput from './TextInput/TextInput';
+import Loader from './Loader/Loader';
 
-export { TabBarIcon, MyBottomNavigation, TextInput };
+export { MyBottomNavigation, TextInput, Loader };
