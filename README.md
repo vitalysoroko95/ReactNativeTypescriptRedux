@@ -14,6 +14,8 @@
 ​​ + Данные для списка необходимо получать с помощью http-запроса (к любому публичному API), во время запроса должен выводиться прелоадер
  + В качестве API можете использовать гитхаб и получить список репозиториев какой-нибудь компании (использовал jsonplaceholder)
 
+ Download APK: https://easyupload.io/3n7qrh
+
 ## Step 1: Start the Metro Server
 
 First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
