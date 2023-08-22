@@ -9,7 +9,7 @@ export default {
     size: 24,
   },
   Details: {
-    screenName: 'List Item',
+    screenName: 'ListItem',
     component: screens.Details,
     icon: icons.user,
     size: 24,
